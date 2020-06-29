@@ -28,42 +28,6 @@ EventQueue queue(32 * EVENTS_EVENT_SIZE);
 
 void xbee_rx(void);
 
-void sort(float thing[], int length, int max_index, int min_index ){
-    float max = thing[0];
-    float min = thing[0];
-    int index_max =0;
-    int index_min =0;
-    for( int i=1; i<length; i++){
-        if(max < thing[i]){
-            max = thing[i];
-            index_max =i;
-        }
-        if(min > thing[i]){
-            min = thing[i];
-            index_min =i;
-        }
-    }
-    max_index = index_max;
-    min_index = index_min;
-}
-
-void find_thing(float thing[],int find){
-    int max_index, min_index;
-    sort(thing, 5, max_index, min_index);
-    if((abs(thing[2]-thing[3])<5)&&(abs(thing[3]-thing[4])<5)&&abs(thing[2]-thing[4])<5){
-        find= 0;
-    }
-    else if(max_index == 4){
-        find= 1;
-    }
-    else if(2<=max_index && 4>= max_index){
-        find= 2;
-    }
-    else {
-        find= 3;
-    }
-}
-
 void xbee_rx(void)
 {
     if(send == 0)
